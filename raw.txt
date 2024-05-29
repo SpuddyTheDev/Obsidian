@@ -73,6 +73,12 @@ points:
       anchor:
         ref: matrix_inner_mod
         shift: [ 1.5kx,1.25ky]
+      columns: 
+        dial:
+          key.column_net: col_inner
+      rows:
+        knob:
+          row_net: row_thumb
     thumbfan:
       key:
         padding: 1ky
@@ -96,3 +102,58 @@ points:
       rows:
         thumb:
           row_net: row_thumb
+outlines:
+  raw:
+    - what: rectangle
+      where: true
+      asym: source
+      size: [kx + px, ky + py]
+      corner: px
+  thumbfan_part:
+    - what: polygon
+      fillet: 3
+      points:
+        - ref: encoder_dial_knob
+          shift: [0.5kx + 0.5px, -0.5ky + 0.5py]
+        - ref: thumbfan_roller_thumb
+          shift: [0.5kx - 0.5px, -0.5ky - 0.5py]
+        - ref: thumbfan_roller_thumb
+          shift: [-0.5kx + 0.5px, -0.5ky - 0.5py]
+        - ref: thumbfan_layer_thumb
+          shift: [-0.5 kx - 0.5px, -0.5ky - 0.5 py]
+        - ref: encoder_dial_knob
+          shift: [-0.5 kx + 0.5px, 0.5ky + 0.5py]
+  
+  outer_part:
+    - what: polygon
+      fillet: 2
+      points:
+        - ref: matrix_outer_top
+          shift: [-.75kx, .75ky]
+        - ref: matrix_pinky_top
+          shift: [.5kx, .75ky]
+        - ref: matrix_ring_top
+          shift: [-.5kx, .75ky]
+        - ref: matrix_ring_top
+          shift: [.5kx, .75ky]
+        - ref: matrix_middle_top
+          shift: [-.5kx, .75ky]
+        - ref: matrix_middle_top
+          shift: [.75kx, .75ky]
+        - ref: matrix_middle_bottom
+          shift: [.75kx, -.75ky]
+        - ref: matrix_middle_bottom
+          shift: [-.5kx, -.75ky]
+        - ref: matrix_ring_bottom
+          shift: [.5kx, -.75ky]
+        - ref: matrix_ring_bottom
+          shift: [-.5kx, -.75ky]
+        - ref: matrix_pinky_bottom
+          shift: [.5kx, -.75ky]
+        - ref: matrix_outer_bottom
+          shift: [-.75kx, -.75ky]
+          
+  viewport:
+    - "raw"
+    - "outer_part"
+      
