@@ -4,67 +4,95 @@ meta:
   version: 0.1
   author: SpudDev
   url: https://github.com/SpuddyTheDev/Obsidian
-
 units:
   kx: cx
   ky: cy
-  px: kx + 2
-  py: ky + 2
-
+  px: 2
+  py: 2
 points:
-  rotate: 5
+  key:
+    footprints:  
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: =colrow
+          to: =column_net
+      diode:
+        type: diode
+        nets:
+          from: =colrow
+          to: =row_net
+        anchor:
+          shift: [0, -5]
   zones:
     matrix:
-      key:
-        padding: 1ky
-        spead: 1kx
-        rows.bottom.skip: true
+      key.padding: 1.1ky
+      key.spread: 1.1kx
       columns:
         outer:
-          rows.bottom.skip: true
+          key.column_net: col_outer
+          rows.mod.skip: true
         pinky:
-          rows.bottom.skip: true
+          key.column_net: col_pinky
+          rows.mod.skip: true
         ring:
-          key.splay: -3
-          key.stagger: 5
-          rows.bottom.skip: true
+          key.splay: -1
+          key.stagger: 0.7ky
+          key.column_net: col_ring
+          rows.mod.skip: true
         middle:
-          key.splay: -3
-          key.stagger: 10
-          rows.bottom.skip: true
+          key.splay: -2
+          key.stagger: 0.4ky
+          key.column_net: col_middle
+          rows.mod.skip: true
         index:
-          key.stagger: -5
-          rows.bottom.skip: true
+          key.splay: -1
+          key.stagger: -0.2ky
+          key.column_net: col_index
+          rows.mod.skip: true
         inner:
-          rows.bottom.skip: true
+          key.column_net: col_inner
+          rows.mod.skip: true
       rows:
-        bottom:
-        home:
-        top:
         mod:
+          row_net: row_mod
+        bottom:
+          row_net: row_bottom
+        home:
+          row_net: row_home
+        top:
+          row_net: row_top
     encoder:
       key:
-        padding: 1ky
-        spread: 1kx
+        padding: ky
+        spread: kx
       anchor:
-        ref: matrix_inner_bottom
-        shift: [1.1kx,1.05ky]
-    thumbs:
+        ref: matrix_inner_mod
+        shift: [ 1.5kx,1.25ky]
+    thumbfan:
       key:
         padding: 1ky
         spread: 1kx
       anchor:
-        ref: matrix_inner_bottom
+        ref: matrix_inner_mod
         shift: [5, -4]
       columns:
         layer:
           key.splay: -15
+          key.column_net: col_middle
         space:
           key.width: 1.5kx
           key.splay: 75
           key.shift: [1,-3.5]
+          key.column_net: col_index
         roller:
           key.splay: -10
           key.shift: [-1kx, -1.6ky]
+          key.column_net: col_inner
       rows:
-        cluster:
+        thumb:
+          row_net: row_thumb
