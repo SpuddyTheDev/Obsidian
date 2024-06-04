@@ -1,10 +1,10 @@
-matrix_outer_home:
-  x: -1.4816476
-  'y': 16.9353099
-  r: 5
+matrix_outer_bottom:
+  x: 0
+  'y': 19.38
+  r: 0
   meta:
     stagger: 0
-    spread: 19
+    spread: 20.52
     splay: 0
     origin:
       - 0
@@ -16,71 +16,140 @@ matrix_outer_home:
     rotate: 0
     width: 18
     height: 18
-    padding: 17
+    padding: 19.38
+    autobind: 10
+    skip: false
+    asym: both
+    colrow: outer_bottom
+    name: matrix_outer_bottom
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_outer
+    row_net: row_bottom
+    zone: &ref_1
+      key:
+        padding: 1.14ky
+        spread: 1.14kx
+      columns:
+        outer: &ref_0
+          key:
+            column_net: col_outer
+          rows:
+            mod:
+              skip: true
+          name: outer
+        pinky: &ref_2
+          key:
+            stagger: 1.15ky
+            column_net: col_pinky
+          rows: {}
+          name: pinky
+        ring: &ref_3
+          key:
+            splay: -1
+            stagger: .4ky
+            column_net: col_ring
+          rows: {}
+          name: ring
+        middle: &ref_4
+          key:
+            splay: -2
+            stagger: 0.4ky
+            column_net: col_middle
+          rows: {}
+          name: middle
+        index: &ref_5
+          key:
+            splay: -1
+            stagger: '-0.2ky'
+            column_net: col_index
+          rows: {}
+          name: index
+        inner: &ref_6
+          key:
+            column_net: col_inner
+          rows: {}
+          name: inner
+      rows:
+        mod:
+          row_net: row_mod
+        bottom:
+          row_net: row_bottom
+        home:
+          row_net: row_home
+        top:
+          row_net: row_top
+      name: matrix
+    col: *ref_0
+    row: bottom
+    bind:
+      - 10
+      - 0
+      - 10
+      - 0
+matrix_outer_home:
+  x: 0
+  'y': 38.76
+  r: 0
+  meta:
+    stagger: 0
+    spread: 20.52
+    splay: 0
+    origin:
+      - 0
+      - 0
+    orient: 0
+    shift:
+      - 0
+      - 0
+    rotate: 0
+    width: 18
+    height: 18
+    padding: 19.38
     autobind: 10
     skip: false
     asym: both
     colrow: outer_home
     name: matrix_outer_home
-    spead: 1kx
-    rows:
-      bottom:
-        skip: true
-    zone: &ref_1
-      key:
-        padding: 1ky
-        spead: 1kx
-        rows:
-          bottom:
-            skip: true
-      columns:
-        outer: &ref_0
-          rows:
-            bottom:
-              skip: true
-          key: {}
-          name: outer
-        pinky: &ref_2
-          rows:
-            bottom:
-              skip: true
-          key: {}
-          name: pinky
-        ring: &ref_3
-          key:
-            splay: -3
-            stagger: 5
-          rows:
-            bottom:
-              skip: true
-          name: ring
-        middle: &ref_4
-          key:
-            splay: -3
-            stagger: 10
-          rows:
-            bottom:
-              skip: true
-          name: middle
-        index: &ref_5
-          key:
-            stagger: -5
-          rows:
-            bottom:
-              skip: true
-          name: index
-        inner: &ref_6
-          rows:
-            bottom:
-              skip: true
-          key: {}
-          name: inner
-      rows:
-        bottom: {}
-        home: {}
-        top: {}
-        mod: {}
-      name: matrix
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_outer
+    row_net: row_home
+    zone: *ref_1
     col: *ref_0
     row: home
     bind:
@@ -89,12 +158,12 @@ matrix_outer_home:
       - 10
       - 0
 matrix_outer_top:
-  x: -2.9632953
-  'y': 33.8706197
-  r: 5
+  x: 0
+  'y': 58.14
+  r: 0
   meta:
     stagger: 0
-    spread: 19
+    spread: 20.52
     splay: 0
     origin:
       - 0
@@ -106,31 +175,48 @@ matrix_outer_top:
     rotate: 0
     width: 18
     height: 18
-    padding: 17
+    padding: 19.38
     autobind: 10
     skip: false
     asym: both
     colrow: outer_top
     name: matrix_outer_top
-    spead: 1kx
-    rows:
-      bottom:
-        skip: true
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_outer
+    row_net: row_top
     zone: *ref_1
     col: *ref_0
     row: top
     bind:
-      - 10
+      - 0
       - 10
       - 10
       - 0
-matrix_outer_mod:
-  x: -4.4449429
-  'y': 50.8059296
-  r: 5
+matrix_pinky_mod:
+  x: 20.52
+  'y': 19.55
+  r: 0
   meta:
-    stagger: 0
-    spread: 19
+    stagger: 19.549999999999997
+    spread: 20.52
     splay: 0
     origin:
       - 0
@@ -142,31 +228,48 @@ matrix_outer_mod:
     rotate: 0
     width: 18
     height: 18
-    padding: 17
+    padding: 19.38
     autobind: 10
     skip: false
     asym: both
-    colrow: outer_mod
-    name: matrix_outer_mod
-    spead: 1kx
-    rows:
-      bottom:
-        skip: true
+    colrow: pinky_mod
+    name: matrix_pinky_mod
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_pinky
+    row_net: row_mod
     zone: *ref_1
-    col: *ref_0
+    col: *ref_2
     row: mod
     bind:
-      - 0
-      - 10
       - 10
       - 0
-matrix_pinky_home:
-  x: 17.4460516
-  'y': 18.591269
-  r: 5
+      - 0
+      - 10
+matrix_pinky_bottom:
+  x: 20.52
+  'y': 38.93
+  r: 0
   meta:
-    stagger: 0
-    spread: 19
+    stagger: 19.549999999999997
+    spread: 20.52
     splay: 0
     origin:
       - 0
@@ -178,16 +281,86 @@ matrix_pinky_home:
     rotate: 0
     width: 18
     height: 18
-    padding: 17
+    padding: 19.38
+    autobind: 10
+    skip: false
+    asym: both
+    colrow: pinky_bottom
+    name: matrix_pinky_bottom
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_pinky
+    row_net: row_bottom
+    zone: *ref_1
+    col: *ref_2
+    row: bottom
+    bind:
+      - 10
+      - 10
+      - 10
+      - 10
+matrix_pinky_home:
+  x: 20.52
+  'y': 58.31
+  r: 0
+  meta:
+    stagger: 19.549999999999997
+    spread: 20.52
+    splay: 0
+    origin:
+      - 0
+      - 0
+    orient: 0
+    shift:
+      - 0
+      - 0
+    rotate: 0
+    width: 18
+    height: 18
+    padding: 19.38
     autobind: 10
     skip: false
     asym: both
     colrow: pinky_home
     name: matrix_pinky_home
-    spead: 1kx
-    rows:
-      bottom:
-        skip: true
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_pinky
+    row_net: row_home
     zone: *ref_1
     col: *ref_2
     row: home
@@ -195,14 +368,14 @@ matrix_pinky_home:
       - 10
       - 10
       - 10
-      - 10
+      - 0
 matrix_pinky_top:
-  x: 15.964404
-  'y': 35.5265788
-  r: 5
+  x: 20.52
+  'y': 77.69
+  r: 0
   meta:
-    stagger: 0
-    spread: 19
+    stagger: 19.549999999999997
+    spread: 20.52
     splay: 0
     origin:
       - 0
@@ -214,32 +387,49 @@ matrix_pinky_top:
     rotate: 0
     width: 18
     height: 18
-    padding: 17
+    padding: 19.38
     autobind: 10
     skip: false
     asym: both
     colrow: pinky_top
     name: matrix_pinky_top
-    spead: 1kx
-    rows:
-      bottom:
-        skip: true
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_pinky
+    row_net: row_top
     zone: *ref_1
     col: *ref_2
     row: top
     bind:
+      - 0
       - 10
       - 10
-      - 10
-      - 10
-matrix_pinky_mod:
-  x: 14.4827564
-  'y': 52.4618887
-  r: 5
+      - 0
+matrix_ring_mod:
+  x: 41.04
+  'y': 26.35
+  r: -1
   meta:
-    stagger: 0
-    spread: 19
-    splay: 0
+    stagger: 6.800000000000001
+    spread: 20.52
+    splay: -1
     origin:
       - 0
       - 0
@@ -250,32 +440,102 @@ matrix_pinky_mod:
     rotate: 0
     width: 18
     height: 18
-    padding: 17
+    padding: 19.38
     autobind: 10
     skip: false
     asym: both
-    colrow: pinky_mod
-    name: matrix_pinky_mod
-    spead: 1kx
-    rows:
-      bottom:
-        skip: true
+    colrow: ring_mod
+    name: matrix_ring_mod
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_ring
+    row_net: row_mod
     zone: *ref_1
-    col: *ref_2
+    col: *ref_3
     row: mod
     bind:
+      - 10
       - 0
+      - 0
+      - 10
+matrix_ring_bottom:
+  x: 41.3782276
+  'y': 45.7270483
+  r: -1
+  meta:
+    stagger: 6.800000000000001
+    spread: 20.52
+    splay: -1
+    origin:
+      - 0
+      - 0
+    orient: 0
+    shift:
+      - 0
+      - 0
+    rotate: 0
+    width: 18
+    height: 18
+    padding: 19.38
+    autobind: 10
+    skip: false
+    asym: both
+    colrow: ring_bottom
+    name: matrix_ring_bottom
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_ring
+    row_net: row_bottom
+    zone: *ref_1
+    col: *ref_3
+    row: bottom
+    bind:
+      - 10
       - 10
       - 10
       - 10
 matrix_ring_home:
-  x: 36.8263284
-  'y': 25.2825358
-  r: 2
+  x: 41.716455200000006
+  'y': 65.10409659999999
+  r: -1
   meta:
-    stagger: 5
-    spread: 19
-    splay: -3
+    stagger: 6.800000000000001
+    spread: 20.52
+    splay: -1
     origin:
       - 0
       - 0
@@ -286,16 +546,33 @@ matrix_ring_home:
     rotate: 0
     width: 18
     height: 18
-    padding: 17
+    padding: 19.38
     autobind: 10
     skip: false
     asym: both
     colrow: ring_home
     name: matrix_ring_home
-    spead: 1kx
-    rows:
-      bottom:
-        skip: true
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_ring
+    row_net: row_home
     zone: *ref_1
     col: *ref_3
     row: home
@@ -305,13 +582,13 @@ matrix_ring_home:
       - 10
       - 10
 matrix_ring_top:
-  x: 36.233037
-  'y': 42.2721799
-  r: 2
+  x: 42.05468280000001
+  'y': 84.48114489999999
+  r: -1
   meta:
-    stagger: 5
-    spread: 19
-    splay: -3
+    stagger: 6.800000000000001
+    spread: 20.52
+    splay: -1
     origin:
       - 0
       - 0
@@ -322,32 +599,49 @@ matrix_ring_top:
     rotate: 0
     width: 18
     height: 18
-    padding: 17
+    padding: 19.38
     autobind: 10
     skip: false
     asym: both
     colrow: ring_top
     name: matrix_ring_top
-    spead: 1kx
-    rows:
-      bottom:
-        skip: true
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_ring
+    row_net: row_top
     zone: *ref_1
     col: *ref_3
     row: top
     bind:
+      - 0
       - 10
       - 10
-      - 10
-      - 10
-matrix_ring_mod:
-  x: 35.6397456
-  'y': 59.2618239
-  r: 2
+      - 0
+matrix_middle_mod:
+  x: 61.6755511
+  'y': 32.7908409
+  r: -3
   meta:
-    stagger: 5
-    spread: 19
-    splay: -3
+    stagger: 6.800000000000001
+    spread: 20.52
+    splay: -2
     origin:
       - 0
       - 0
@@ -358,32 +652,49 @@ matrix_ring_mod:
     rotate: 0
     width: 18
     height: 18
-    padding: 17
+    padding: 19.38
     autobind: 10
     skip: false
     asym: both
-    colrow: ring_mod
-    name: matrix_ring_mod
-    spead: 1kx
-    rows:
-      bottom:
-        skip: true
+    colrow: middle_mod
+    name: matrix_middle_mod
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_middle
+    row_net: row_mod
     zone: *ref_1
-    col: *ref_3
+    col: *ref_4
     row: mod
     bind:
-      - 0
       - 10
       - 10
       - 0
-matrix_middle_home:
-  x: 56.3557415
-  'y': 35.9473012
-  r: -1
+      - 10
+matrix_middle_bottom:
+  x: 62.6898219
+  'y': 52.1442813
+  r: -3
   meta:
-    stagger: 10
-    spread: 19
-    splay: -3
+    stagger: 6.800000000000001
+    spread: 20.52
+    splay: -2
     origin:
       - 0
       - 0
@@ -394,16 +705,86 @@ matrix_middle_home:
     rotate: 0
     width: 18
     height: 18
-    padding: 17
+    padding: 19.38
+    autobind: 10
+    skip: false
+    asym: both
+    colrow: middle_bottom
+    name: matrix_middle_bottom
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_middle
+    row_net: row_bottom
+    zone: *ref_1
+    col: *ref_4
+    row: bottom
+    bind:
+      - 10
+      - 10
+      - 10
+      - 10
+matrix_middle_home:
+  x: 63.7040927
+  'y': 71.4977217
+  r: -3
+  meta:
+    stagger: 6.800000000000001
+    spread: 20.52
+    splay: -2
+    origin:
+      - 0
+      - 0
+    orient: 0
+    shift:
+      - 0
+      - 0
+    rotate: 0
+    width: 18
+    height: 18
+    padding: 19.38
     autobind: 10
     skip: false
     asym: both
     colrow: middle_home
     name: matrix_middle_home
-    spead: 1kx
-    rows:
-      bottom:
-        skip: true
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_middle
+    row_net: row_home
     zone: *ref_1
     col: *ref_4
     row: home
@@ -413,13 +794,13 @@ matrix_middle_home:
       - 10
       - 10
 matrix_middle_top:
-  x: 56.6524324
-  'y': 52.944712
-  r: -1
+  x: 64.7183635
+  'y': 90.8511621
+  r: -3
   meta:
-    stagger: 10
-    spread: 19
-    splay: -3
+    stagger: 6.800000000000001
+    spread: 20.52
+    splay: -2
     origin:
       - 0
       - 0
@@ -430,32 +811,49 @@ matrix_middle_top:
     rotate: 0
     width: 18
     height: 18
-    padding: 17
+    padding: 19.38
     autobind: 10
     skip: false
     asym: both
     colrow: middle_top
     name: matrix_middle_top
-    spead: 1kx
-    rows:
-      bottom:
-        skip: true
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_middle
+    row_net: row_top
     zone: *ref_1
     col: *ref_4
     row: top
     bind:
+      - 0
+      - 0
       - 10
-      - 10
-      - 10
-      - 10
-matrix_middle_mod:
-  x: 56.9491233
-  'y': 69.9421228
-  r: -1
+      - 0
+matrix_index_mod:
+  x: 81.9894869
+  'y': 28.321566699999998
+  r: -4
   meta:
-    stagger: 10
-    spread: 19
-    splay: -3
+    stagger: -3.4000000000000004
+    spread: 20.52
+    splay: -1
     origin:
       - 0
       - 0
@@ -466,32 +864,49 @@ matrix_middle_mod:
     rotate: 0
     width: 18
     height: 18
-    padding: 17
+    padding: 19.38
     autobind: 10
     skip: false
     asym: both
-    colrow: middle_mod
-    name: matrix_middle_mod
-    spead: 1kx
-    rows:
-      bottom:
-        skip: true
+    colrow: index_mod
+    name: matrix_index_mod
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_index
+    row_net: row_mod
     zone: *ref_1
-    col: *ref_4
+    col: *ref_5
     row: mod
     bind:
-      - 0
-      - 0
+      - 10
       - 10
       - 0
-matrix_index_home:
-  x: 75.2655857
-  'y': 30.616467
-  r: -1
+      - 0
+matrix_index_bottom:
+  x: 83.3413674
+  'y': 47.654358
+  r: -4
   meta:
-    stagger: -5
-    spread: 19
-    splay: 0
+    stagger: -3.4000000000000004
+    spread: 20.52
+    splay: -1
     origin:
       - 0
       - 0
@@ -502,16 +917,86 @@ matrix_index_home:
     rotate: 0
     width: 18
     height: 18
-    padding: 17
+    padding: 19.38
+    autobind: 10
+    skip: false
+    asym: both
+    colrow: index_bottom
+    name: matrix_index_bottom
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_index
+    row_net: row_bottom
+    zone: *ref_1
+    col: *ref_5
+    row: bottom
+    bind:
+      - 10
+      - 10
+      - 10
+      - 10
+matrix_index_home:
+  x: 84.69324789999999
+  'y': 66.9871493
+  r: -4
+  meta:
+    stagger: -3.4000000000000004
+    spread: 20.52
+    splay: -1
+    origin:
+      - 0
+      - 0
+    orient: 0
+    shift:
+      - 0
+      - 0
+    rotate: 0
+    width: 18
+    height: 18
+    padding: 19.38
     autobind: 10
     skip: false
     asym: both
     colrow: index_home
     name: matrix_index_home
-    spead: 1kx
-    rows:
-      bottom:
-        skip: true
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_index
+    row_net: row_home
     zone: *ref_1
     col: *ref_5
     row: home
@@ -521,13 +1006,13 @@ matrix_index_home:
       - 10
       - 10
 matrix_index_top:
-  x: 75.5622766
-  'y': 47.6138778
-  r: -1
+  x: 86.04512839999998
+  'y': 86.3199406
+  r: -4
   meta:
-    stagger: -5
-    spread: 19
-    splay: 0
+    stagger: -3.4000000000000004
+    spread: 20.52
+    splay: -1
     origin:
       - 0
       - 0
@@ -538,31 +1023,48 @@ matrix_index_top:
     rotate: 0
     width: 18
     height: 18
-    padding: 17
+    padding: 19.38
     autobind: 10
     skip: false
     asym: both
     colrow: index_top
     name: matrix_index_top
-    spead: 1kx
-    rows:
-      bottom:
-        skip: true
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_index
+    row_net: row_top
     zone: *ref_1
     col: *ref_5
     row: top
     bind:
+      - 0
+      - 0
       - 10
       - 10
-      - 10
-      - 10
-matrix_index_mod:
-  x: 75.8589675
-  'y': 64.6112886
-  r: -1
+matrix_inner_mod:
+  x: 102.4595012
+  'y': 26.890163899999997
+  r: -4
   meta:
-    stagger: -5
-    spread: 19
+    stagger: 0
+    spread: 20.52
     splay: 0
     origin:
       - 0
@@ -574,31 +1076,101 @@ matrix_index_mod:
     rotate: 0
     width: 18
     height: 18
-    padding: 17
+    padding: 19.38
     autobind: 10
     skip: false
     asym: both
-    colrow: index_mod
-    name: matrix_index_mod
-    spead: 1kx
-    rows:
-      bottom:
-        skip: true
+    colrow: inner_mod
+    name: matrix_inner_mod
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_inner
+    row_net: row_mod
     zone: *ref_1
-    col: *ref_5
+    col: *ref_6
     row: mod
     bind:
+      - 10
       - 0
+      - 0
+      - 0
+matrix_inner_bottom:
+  x: 103.8113817
+  'y': 46.2229552
+  r: -4
+  meta:
+    stagger: 0
+    spread: 20.52
+    splay: 0
+    origin:
+      - 0
+      - 0
+    orient: 0
+    shift:
+      - 0
+      - 0
+    rotate: 0
+    width: 18
+    height: 18
+    padding: 19.38
+    autobind: 10
+    skip: false
+    asym: both
+    colrow: inner_bottom
+    name: matrix_inner_bottom
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_inner
+    row_net: row_bottom
+    zone: *ref_1
+    col: *ref_6
+    row: bottom
+    bind:
+      - 10
       - 0
       - 10
       - 10
 matrix_inner_home:
-  x: 94.2626919
-  'y': 30.2848713
-  r: -1
+  x: 105.16326219999999
+  'y': 65.5557465
+  r: -4
   meta:
     stagger: 0
-    spread: 19
+    spread: 20.52
     splay: 0
     origin:
       - 0
@@ -610,16 +1182,33 @@ matrix_inner_home:
     rotate: 0
     width: 18
     height: 18
-    padding: 17
+    padding: 19.38
     autobind: 10
     skip: false
     asym: both
     colrow: inner_home
     name: matrix_inner_home
-    spead: 1kx
-    rows:
-      bottom:
-        skip: true
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_inner
+    row_net: row_home
     zone: *ref_1
     col: *ref_6
     row: home
@@ -629,12 +1218,12 @@ matrix_inner_home:
       - 10
       - 10
 matrix_inner_top:
-  x: 94.5593829
-  'y': 47.2822821
-  r: -1
+  x: 106.51514269999998
+  'y': 84.8885378
+  r: -4
   meta:
     stagger: 0
-    spread: 19
+    spread: 20.52
     splay: 0
     origin:
       - 0
@@ -646,64 +1235,45 @@ matrix_inner_top:
     rotate: 0
     width: 18
     height: 18
-    padding: 17
+    padding: 19.38
     autobind: 10
     skip: false
     asym: both
     colrow: inner_top
     name: matrix_inner_top
-    spead: 1kx
-    rows:
-      bottom:
-        skip: true
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_inner
+    row_net: row_top
     zone: *ref_1
     col: *ref_6
     row: top
     bind:
-      - 10
-      - 0
-      - 10
-      - 10
-matrix_inner_mod:
-  x: 94.8560738
-  'y': 64.2796929
-  r: -1
-  meta:
-    stagger: 0
-    spread: 19
-    splay: 0
-    origin:
-      - 0
-      - 0
-    orient: 0
-    shift:
-      - 0
-      - 0
-    rotate: 0
-    width: 18
-    height: 18
-    padding: 17
-    autobind: 10
-    skip: false
-    asym: both
-    colrow: inner_mod
-    name: matrix_inner_mod
-    spead: 1kx
-    rows:
-      bottom:
-        skip: true
-    zone: *ref_1
-    col: *ref_6
-    row: mod
-    bind:
       - 0
       - 0
       - 10
       - 10
-encoder:
-  x: 114.0745108
-  'y': 30.7891843
-  r: -1
+encoder_dial_knob:
+  x: 129.3937306
+  'y': 25.006739099999997
+  r: -4
   meta:
     stagger: 0
     spread: 18
@@ -722,31 +1292,58 @@ encoder:
     autobind: 10
     skip: false
     asym: both
-    colrow: default_default
-    name: encoder
+    colrow: dial_knob
+    name: encoder_dial_knob
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_encoder
+    row_net: row_thumb
     zone:
       key:
-        padding: 1ky
-        spread: 1kx
+        padding: ky
+        spread: kx
+      columns:
+        dial: &ref_7
+          key:
+            column_net: col_encoder
+          rows: {}
+          name: dial
+      rows:
+        knob:
+          row_net: row_thumb
       name: encoder
-    col:
-      rows: {}
-      key: {}
-      name: default
-    row: default
+    col: *ref_7
+    row: knob
     bind:
       - 0
       - 0
       - 0
       - 0
-thumbs_layer_cluster:
-  x: 98.8954298
-  'y': 9.2008077
-  r: -16
+thumbfan_layer_thumb:
+  x: 80.6257478
+  'y': 8.819189499999997
+  r: -4
   meta:
     stagger: 0
-    spread: 18
-    splay: -15
+    spread: 20.7
+    splay: 0
     origin:
       - 0
       - 0
@@ -757,108 +1354,236 @@ thumbs_layer_cluster:
     rotate: 0
     width: 18
     height: 18
-    padding: 17
+    padding: 19.72
     autobind: 10
     skip: false
     asym: both
-    colrow: layer_cluster
-    name: thumbs_layer_cluster
-    zone: &ref_8
+    colrow: layer_thumb
+    name: thumbfan_layer_thumb
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_middle
+    row_net: row_thumb
+    zone: &ref_9
       key:
-        padding: 1ky
-        spread: 1kx
+        padding: 1.16ky
+        spread: 1.15kx
       columns:
-        layer: &ref_7
+        layer: &ref_8
           key:
-            splay: -15
+            column_net: col_middle
           rows: {}
           name: layer
-        space: &ref_9
+        extra: &ref_10
           key:
-            width: 1.5kx
-            splay: 75
+            splay: -14
             shift:
-              - 1
-              - -3.5
+              - 2
+              - -3
+            column_net: col_index
+          rows: {}
+          name: extra
+        space: &ref_11
+          key:
+            width: 1.5ky
+            splay: 73
+            shift:
+              - '-.3kx'
+              - -5
+            column_net: col_inner
           rows: {}
           name: space
-        roller: &ref_10
+        roller: &ref_12
           key:
             splay: -10
             shift:
-              - '-1kx'
-              - '-1.6ky'
+              - '-1.3kx'
+              - '-1.8ky'
+            column_net: col_emcoder
           rows: {}
           name: roller
       rows:
-        cluster: {}
-      name: thumbs
-    col: *ref_7
-    row: cluster
+        thumb:
+          row_net: row_thumb
+      name: thumbfan
+    col: *ref_8
+    row: thumb
     bind:
       - 0
       - 0
       - 0
       - 0
-thumbs_space_cluster:
-  x: 119.713264
-  'y': 3.2938693
-  r: 59
+thumbfan_extra_thumb:
+  x: 102.2503856
+  'y': 3.904026999999997
+  r: -18
   meta:
     stagger: 0
-    spread: 18
-    splay: 75
+    spread: 20.7
+    splay: -14
     origin:
       - 0
       - 0
     orient: 0
     shift:
-      - 1
-      - -3.5
+      - 2
+      - -3
     rotate: 0
-    width: 27
+    width: 18
     height: 18
-    padding: 17
+    padding: 19.72
     autobind: 10
     skip: false
     asym: both
-    colrow: space_cluster
-    name: thumbs_space_cluster
-    zone: *ref_8
-    col: *ref_9
-    row: cluster
+    colrow: extra_thumb
+    name: thumbfan_extra_thumb
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_index
+    row_net: row_thumb
+    zone: *ref_9
+    col: *ref_10
+    row: thumb
     bind:
       - 0
       - 0
       - 0
       - 0
-thumbs_roller_cluster:
-  x: 134.1878638
-  'y': -11.7612314
-  r: 49
+thumbfan_space_thumb:
+  x: 121.96064100000001
+  'y': -6.3127245000000025
+  r: 55
   meta:
     stagger: 0
-    spread: 18
+    spread: 20.7
+    splay: 73
+    origin:
+      - 0
+      - 0
+    orient: 0
+    shift:
+      - -5.3999999999999995
+      - -5
+    rotate: 0
+    width: 25.5
+    height: 18
+    padding: 19.72
+    autobind: 10
+    skip: false
+    asym: both
+    colrow: space_thumb
+    name: thumbfan_space_thumb
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_inner
+    row_net: row_thumb
+    zone: *ref_9
+    col: *ref_11
+    row: thumb
+    bind:
+      - 0
+      - 0
+      - 0
+      - 0
+thumbfan_roller_thumb:
+  x: 137.9263946
+  'y': -20.248740200000004
+  r: 45
+  meta:
+    stagger: 0
+    spread: 20.7
     splay: -10
     origin:
       - 0
       - 0
     orient: 0
     shift:
-      - -18
-      - -27.200000000000003
+      - -23.400000000000002
+      - -30.6
     rotate: 0
     width: 18
     height: 18
-    padding: 17
+    padding: 19.72
     autobind: 10
     skip: false
     asym: both
-    colrow: roller_cluster
-    name: thumbs_roller_cluster
-    zone: *ref_8
-    col: *ref_10
-    row: cluster
+    colrow: roller_thumb
+    name: thumbfan_roller_thumb
+    footprints:
+      choc_hotswap:
+        type: choc
+        params:
+          hotswap: true
+          reverse: true
+          keycaps: true
+        nets:
+          from: '=colrow'
+          to: '=column_net'
+      diode:
+        type: diode
+        nets:
+          from: '=colrow'
+          to: '=row_net'
+        anchor:
+          shift:
+            - 0
+            - -5
+    column_net: col_emcoder
+    row_net: row_thumb
+    zone: *ref_9
+    col: *ref_12
+    row: thumb
     bind:
       - 0
       - 0

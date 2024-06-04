@@ -30,33 +30,29 @@ points:
           shift: [0, -5]
   zones:
     matrix:
-      key.padding: 1.1ky
-      key.spread: 1.1kx
+      key.padding: 1.14ky
+      key.spread: 1.14kx
       columns:
         outer:
           key.column_net: col_outer
           rows.mod.skip: true
         pinky:
+          key.stagger: 1.15ky
           key.column_net: col_pinky
-          rows.mod.skip: true
         ring:
           key.splay: -1
-          key.stagger: 0.7ky
+          key.stagger: .4ky
           key.column_net: col_ring
-          rows.mod.skip: true
         middle:
           key.splay: -2
           key.stagger: 0.4ky
           key.column_net: col_middle
-          rows.mod.skip: true
         index:
           key.splay: -1
           key.stagger: -0.2ky
           key.column_net: col_index
-          rows.mod.skip: true
         inner:
           key.column_net: col_inner
-          rows.mod.skip: true
       rows:
         mod:
           row_net: row_mod
@@ -72,88 +68,156 @@ points:
         spread: kx
       anchor:
         ref: matrix_inner_mod
-        shift: [ 1.5kx,1.25ky]
+        shift: [1.5kx,0]
       columns: 
         dial:
-          key.column_net: col_inner
+          key.column_net: col_encoder
       rows:
         knob:
           row_net: row_thumb
     thumbfan:
       key:
-        padding: 1ky
-        spread: 1kx
+        padding: 1.16ky
+        spread: 1.15kx
       anchor:
-        ref: matrix_inner_mod
-        shift: [5, -4]
+        ref: matrix_index_mod
+        shift: [0, -1.15ky]
       columns:
         layer:
-          key.splay: -15
           key.column_net: col_middle
-        space:
-          key.width: 1.5kx
-          key.splay: 75
-          key.shift: [1,-3.5]
+        extra:
+          key.splay: -14
+          key.shift: [2,-3]
           key.column_net: col_index
+        space:
+          key.width: 1.5ky
+          key.splay: 73
+          key.shift: [-.3kx,-5]
+          key.column_net: col_inner
         roller:
           key.splay: -10
-          key.shift: [-1kx, -1.6ky]
-          key.column_net: col_inner
+          key.shift: [-1.3kx, -1.8ky]
+          key.column_net: col_emcoder
       rows:
         thumb:
           row_net: row_thumb
 outlines:
-  raw:
+  caps:
     - what: rectangle
       where: true
       asym: source
       size: [kx + px, ky + py]
       corner: px
+
   thumbfan_part:
     - what: polygon
       fillet: 3
       points:
         - ref: encoder_dial_knob
-          shift: [0.5kx + 0.5px, -0.5ky + 0.5py]
+          shift: [0.75kx + 0.75px, -0.75ky + 0.75py]
         - ref: thumbfan_roller_thumb
-          shift: [0.5kx - 0.5px, -0.5ky - 0.5py]
+          shift: [0.75kx - 0.75px, -0.75ky - 0.75py]
         - ref: thumbfan_roller_thumb
-          shift: [-0.5kx + 0.5px, -0.5ky - 0.5py]
+          shift: [-0.75kx + 0.75px, -0.75ky - 0.75py]
         - ref: thumbfan_layer_thumb
-          shift: [-0.5 kx - 0.5px, -0.5ky - 0.5 py]
+          shift: [-0.75 kx - 0.75px, -0.75ky - 0.75 py]
+        - ref: matrix_middle_mod
         - ref: encoder_dial_knob
-          shift: [-0.5 kx + 0.5px, 0.5ky + 0.5py]
+          shift: [-0.75 kx + 0.75px, 0.75ky + 0.75py]
   
   outer_part:
     - what: polygon
       fillet: 2
       points:
         - ref: matrix_outer_top
-          shift: [-.75kx, .75ky]
+          shift: [-0.75kx, 0.75ky]
+        - ref: matrix_outer_top
+          shift: [.75kx, 1.55ky]
         - ref: matrix_pinky_top
-          shift: [.5kx, .75ky]
+          shift: [0.5kx, 0.75ky]
+        - ref: matrix_pinky_top
+          shift: [0.5kx, 0.75ky]
         - ref: matrix_ring_top
-          shift: [-.5kx, .75ky]
+          shift: [-0.5kx, 0.75ky]
         - ref: matrix_ring_top
-          shift: [.5kx, .75ky]
+          shift: [0.5kx, 0.75ky]
         - ref: matrix_middle_top
-          shift: [-.5kx, .75ky]
+          shift: [-0.5kx, 0.75ky]
         - ref: matrix_middle_top
-          shift: [.75kx, .75ky]
-        - ref: matrix_middle_bottom
-          shift: [.75kx, -.75ky]
-        - ref: matrix_middle_bottom
-          shift: [-.5kx, -.75ky]
-        - ref: matrix_ring_bottom
-          shift: [.5kx, -.75ky]
-        - ref: matrix_ring_bottom
-          shift: [-.5kx, -.75ky]
-        - ref: matrix_pinky_bottom
-          shift: [.5kx, -.75ky]
+          shift: [0.75kx, 0.75ky]
+        - ref: matrix_middle_mod
+          shift: [0.75kx, -0.75ky]
+        - ref: matrix_middle_mod
+          shift: [-0.5kx, -0.75ky]
+        - ref: matrix_ring_mod
+          shift: [0.5kx, -0.75ky]
+        - ref: matrix_ring_mod
+          shift: [-0.5kx, -0.75ky]
+        - ref: matrix_pinky_mod
+          shift: [0.5kx, -0.75ky]
         - ref: matrix_outer_bottom
-          shift: [-.75kx, -.75ky]
-          
+          shift: [-0.75kx, -0.75ky]
+  
+  inner_part:
+    - what: polygon
+      fillet: 2
+      points:
+        - ref: matrix_index_top
+          shift: [-0.75kx, 0.75ky]
+        - ref: matrix_inner_top
+          shift: [0.5kx, 0.75ky]
+        - ref: encoder_dial_knob
+          shift: [0.75kx, 0.75ky]
+        - ref: encoder_dial_knob
+          shift: [0.75kx, -0.75ky]
+        - ref: encoder_dial_knob 
+          shift: [-0.5kx, -0.75ky]
+        - ref: matrix_inner_mod
+          shift: [0.5kx, -0.75ky]
+        - ref: matrix_index_mod
+          shift: [-0.75kx, -0.75ky]
+  
+  controller_part:
+    - what: rectangle
+      fillet: 2
+      where:
+        - ref: matrix_inner_top
+          shift: [1.13kx, -.85ky]
+      size: [30, 55]
+      corner: px
+    
   viewport:
-    - "raw"
+    - "caps"
+    - "inner_part"
     - "outer_part"
+    - "thumbfan_part"
+    - "controller_part"
+  
+  panel_punch:
+    - "viewport"
+    - "-caps"
+
+  obsidian:
+    - what: outline
+      name: viewport
+      fillet: 3
+pcbs:
+  obisdian:
+    outlines:
+      main:
+        outline: board
+    footprints:
+      choc_hotswap:
+        what: choc
+        where: true
+        params:
+          keycaps: true
+          reverse: false
+          hotswap: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+
+
+
+
       
