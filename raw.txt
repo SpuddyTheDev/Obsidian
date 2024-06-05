@@ -132,29 +132,29 @@ outlines:
         - ref: matrix_outer_top
           shift: [-0.75kx, 0.75ky]
         - ref: matrix_outer_top
-          shift: [.75kx, 1.55ky]
+          shift: [.25kx, .75ky]
         - ref: matrix_pinky_top
-          shift: [0.5kx, 0.75ky]
+          shift: [-.75kx, 0.75ky]
         - ref: matrix_pinky_top
-          shift: [0.5kx, 0.75ky]
+          shift: [0.25kx, 0.75ky]
         - ref: matrix_ring_top
-          shift: [-0.5kx, 0.75ky]
+          shift: [-.75kx, 0.75ky]
         - ref: matrix_ring_top
-          shift: [0.5kx, 0.75ky]
+          shift: [0.25kx, 0.75ky]
         - ref: matrix_middle_top
-          shift: [-0.5kx, 0.75ky]
+          shift: [-0.75kx, 0.75ky]
         - ref: matrix_middle_top
           shift: [0.75kx, 0.75ky]
         - ref: matrix_middle_mod
           shift: [0.75kx, -0.75ky]
         - ref: matrix_middle_mod
-          shift: [-0.5kx, -0.75ky]
+          shift: [-0.25kx, -0.75ky]
         - ref: matrix_ring_mod
-          shift: [0.5kx, -0.75ky]
+          shift: [0.75kx, -0.75ky]
         - ref: matrix_ring_mod
-          shift: [-0.5kx, -0.75ky]
+          shift: [-0.25kx, -0.75ky]
         - ref: matrix_pinky_mod
-          shift: [0.5kx, -0.75ky]
+          shift: [0.75kx, -0.75ky]
         - ref: matrix_outer_bottom
           shift: [-0.75kx, -0.75ky]
   
@@ -201,21 +201,23 @@ outlines:
     - what: outline
       name: viewport
       fillet: 3
-pcbs:
-  obisdian:
-    outlines:
-      main:
-        outline: board
-    footprints:
-      choc_hotswap:
-        what: choc
-        where: true
-        params:
-          keycaps: true
-          reverse: false
-          hotswap: true
-          from: "{{column_net}}"
-          to: "{{colrow}}"
+
+#Work in Progress
+#pcbs:
+#  obisdian:
+#    outlines:
+#      main:
+#        outline: board
+#    footprints:
+#      choc_hotswap:
+#        what: choc
+#        where: true
+#        params:
+#          keycaps: true
+#          reverse: false
+#          hotswap: true
+#          from: "{{column_net}}"
+#          to: "{{colrow}}"
 
 
 
